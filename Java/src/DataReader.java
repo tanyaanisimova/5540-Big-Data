@@ -7,7 +7,7 @@ import java.util.Map;
 import com.google.gson.Gson;
 
 public class DataReader {
-	public static final String csvDirPath = "/Users/tanyaanisimova/git/5540-Big-Data/input";
+	public static final String csvDirPath = "/Users/tanyaanisimova/git/5540-Big-Data/input/";
 	
 	public static String readDataQ1() {
 		return readData(csvDirPath + "query1.csv");
