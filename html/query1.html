@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <div style="margin: 20px 0px 30px 0px"> 
+        <a style="margin: 10px" href="query2.html">Query 2</a>
+        <a style="margin: 10px" href="query3.html">Query 3</a>
+        <a style="margin: 10px" href="query4.html">Query 4</a>
+        <a style="margin: 10px" href="query5.html">Query 5</a>
+        <a style="margin: 10px" href="query6.html">Query 6</a>
+        <a style="margin: 10px" href="query7.html">Query 7</a>
+        <a style="margin: 10px" href="query8.html">Query 8</a>
+        <a style="margin: 10px" href="query9.html">Query 9</a>
+        <a style="margin: 10px" href="query10.html">Query 10</a>
+    </div>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['table']});
+        google.charts.setOnLoadCallback(drawTable);
+
+        var output;
+
+        var ajax = function(url, type) {
+            output = "";
+            var req = new XMLHttpRequest();
+            req.open(type, url, true);
+            req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            req.send("");
+            return req;
+        };
+
+        function drawTable() {
+            var dt = [];
+
+            var req = ajax('http://localhost:8080/TwitterAnalysis/Query1Servlet','GET');
+            req.onreadystatechange = function() {
+                if (req.readyState == 4 && req.status == 200) {
+                    output = JSON.parse(req.responseText)
+                    addData(output);
+                }
+            };
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Name');
+            data.addColumn('boolean', 'verified');
+
+            function addData(dataPoints) {
+                Object.keys(dataPoints).forEach(function(key) {
+                    var isTrueSet = (dataPoints[key] == 'true');
+                    dt.push([key,isTrueSet]);
+                });
+                data.addRows(dt);
+
+                var table = new google.visualization.Table(document.getElementById('table_div'));
+
+                table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+            }
+        }
+    </script>
+    <div id="table_div" style="height: 180px;"></div>
+</body>
+</html>

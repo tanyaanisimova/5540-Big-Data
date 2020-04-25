@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <div style="margin: 20px 0px 30px 0px"> 
+        <a style="margin: 10px" href="query1.html">Query 1</a>
+        <a style="margin: 10px" href="query2.html">Query 2</a>
+        <a style="margin: 10px" href="query3.html">Query 3</a>
+        <a style="margin: 10px" href="query4.html">Query 4</a>
+        <a style="margin: 10px" href="query5.html">Query 5</a>
+        <a style="margin: 10px" href="query7.html">Query 7</a>
+        <a style="margin: 10px" href="query8.html">Query 8</a>
+        <a style="margin: 10px" href="query9.html">Query 9</a>
+        <a style="margin: 10px" href="query10.html">Query 10</a>
+    </div>
+    
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script type="text/javascript">
+        google.charts.load('current', {
+          'packages':['geochart'],
+          // Note: you will need to get a mapsApiKey for your project.
+          // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+          'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+        });
+        google.charts.setOnLoadCallback(drawRegionsMap);
+
+        function drawRegionsMap() {
+          var data = google.visualization.arrayToDataTable([
+            ['Country', 'Popularity'],
+            ['Brasil', 200],
+            ['Brasilia', 300],
+            ['United states', 400],
+            ['Brazil', 500],
+            ['Portugal', 600],
+            ['United kingdom', 700]
+          ]);
+
+          var options = {};
+
+          var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+          chart.draw(data, options);
+        }
+        </script>
+<div id="regions_div" style="height: 180px;"></div>
+</body>
+</html>

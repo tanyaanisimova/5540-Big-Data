@@ -1,0 +1,59 @@
+<html>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", {packages:["corechart"]});
+        google.charts.setOnLoadCallback(drawChart);
+        
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['language', 'lang_count'],
+                ['pt',     480560],
+                ['en',      187031],
+                ['ja',  10546],
+                ['tr', 9772],
+                ['es',    7936]
+                ['ru',    5430]
+                ['de',    3969]
+                ['en-gb',    3421]
+                ['fr',    3100]
+                ['hu',    1881]
+                ['nl',    1641]
+                ['cs',    1625]
+                ['id',    1395]
+                ['it',    1355]
+                ['vi',    919]
+                ['ko',    824]
+                ['pl',    511]
+                ['ar',    335]
+                ['pt-PT',    232]
+                ['zh-cn',    201]
+            ]);
+
+            var options = {
+                title: 'language count',
+                pieHole: 0.4,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+                chart.draw(data, options);
+        }
+    </script>
+</head>
+    
+<body>
+    <div style="margin: 20px 0px 30px 0px"> 
+        <a style="margin: 10px" href="query1.html">Query 1</a>
+        <a style="margin: 10px" href="query2.html">Query 2</a>
+        <a style="margin: 10px" href="query3.html">Query 3</a>
+        <a style="margin: 10px" href="query4.html">Query 4</a>
+        <a style="margin: 10px" href="query6.html">Query 6</a>
+        <a style="margin: 10px" href="query7.html">Query 7</a>
+        <a style="margin: 10px" href="query8.html">Query 8</a>
+        <a style="margin: 10px" href="query9.html">Query 9</a>
+        <a style="margin: 10px" href="query10.html">Query 10</a>
+    </div>
+
+    <div id="donutchart" style="width: 900px; height: 500px;"></div>
+</body>
+</html>
