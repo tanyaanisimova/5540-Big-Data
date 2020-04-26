@@ -25,22 +25,22 @@
         function drawBasic() {
             var data = google.visualization.arrayToDataTable([
                 ['entities_hashtag', 'count',],
-                ['monero', 90],
-                ['ripple', 99],
-                ['dogecoin', 71],
-                ['bitcoin', 7817],
-                ['ethereum', 463]
+                ['covid19', 59300],
+                ['coronavirus', 32949],
+                ['healthcare', 7421],
+                ['virus', 463],
+                ['recovered', 176]
             ]);
 
             var options = {
-                    title: 'number of people talking about cryptocurrencies',
+                    title: 'Top Coronavirus Hashtags',
                     chartArea: {width: '50%'},
                     hAxis: {
-                    title: 'count',
+                    title: 'Count',
                     minValue: 0
                 },
                 vAxis: {
-                    title: 'entities_hashtags'
+                    title: 'Hashtags'
                 }
             };
 
